@@ -319,6 +319,18 @@ rooms.room_type
 from memberships
 JOIN rooms
 ON rooms.room_id = memberships.room_id;
+
+-- Bonus5
+select CONCAT(members.first_name, ' ', members.last_name), departments.department_name
+from memberships
+join members
+on members.member_id = memberships.member_id
+join appointments
+on appointments.member_id = members.member_id
+join trainers
+on trainers.department_id = appointments.trainer_id
+join departments
+on departments.department_id = trainers.department_id;
 ------------------------------------------
 SELECT * FROM members;
 SELECT * FROM rooms;
